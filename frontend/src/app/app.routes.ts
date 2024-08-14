@@ -29,11 +29,7 @@ export const routes: Routes = [
       {
         path: 'pages',
         loadChildren: () => import('./views/pages/routes').then((m) => m.routes)
-      },
-      // {
-      //   path: 'formularios',
-      //   loadChildren: () => import('./views/components/routes').then((m) => m.routes)
-      // }
+      }
     ]
   },
   {
