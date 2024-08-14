@@ -37,6 +37,21 @@ export const navItems: INavData[] = [
       
     ]
   },
+
+  {
+    name: 'Formularios',
+    url: '/tableros',
+    iconComponent: { name: 'cil-chart' },
+    children: [
+ 
+      {
+        name: 'persona',
+        url: '/tableros/persona',
+        icon: 'nav-icon-bullet'
+      },
+     
+    ]
+  },
   
   {
     name: 'Tableros',
@@ -64,7 +79,7 @@ export const navItems: INavData[] = [
         name: 'Violencia de genero',
         url: '/tableros/violencia',
         icon: 'nav-icon-bullet'
-      }
+      },
     ]
   },
   
@@ -86,6 +101,7 @@ export const navItems: INavData[] = [
      
     ]
   },
+ 
   {
     title: true,
     name: 'Links',

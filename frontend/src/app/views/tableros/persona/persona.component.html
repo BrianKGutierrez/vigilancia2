@@ -1,0 +1,23 @@
+<div>
+    <h2>Gestión de Personas</h2>
+  
+    <form (ngSubmit)="selectedPersona._id ? updatePersona() : addPersona()">
+      <input [(ngModel)]="selectedPersona.nombre" name="nombre" placeholder="Nombre" required>
+      <input [(ngModel)]="selectedPersona.apellido" name="apellido" placeholder="Apellido" required>
+      <input [(ngModel)]="selectedPersona.dni" name="dni" placeholder="DNI" required>
+      <!-- Agrega los demás campos según el modelo Persona -->
+  
+      <button type="submit">{{ selectedPersona._id ? 'Actualizar' : 'Crear' }}</button>
+      <button type="button" (click)="resetForm()">Cancelar</button>
+    </form>
+  
+    <h3>Lista de Personas</h3>
+    <ul>
+      <li *ngFor="let persona of personas">
+        {{ persona.nombre }} {{ persona.apellido }}
+        <button (click)="editPersona(persona)">Editar</button>
+        <button (click)="deletePersona(persona._id)">Eliminar</button>
+      </li>
+    </ul>
+  </div>
+  
