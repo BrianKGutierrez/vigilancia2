@@ -9,11 +9,11 @@ const PersonaSchema = new Schema({
   provincia: { type: String, required: true },       // Usa String en lugar de 'string'
   localidad: { type: String, required: true },       // Usa String en lugar de 'string'
   codigoPostal: { type: String, required: true },    // Usa String en lugar de 'string'
-  fechaRegistro: { type: Date, default: Date.now },  // Usa Date para fechas
+  // fechaRegistro: { type: Date, default: Date.now },  // Usa Date para fechas
   domicilio: { type: String, required: true },       // Usa String en lugar de 'string'
   fechaNacimiento: { type: Date, required: true },   // Usa Date para fechas
   sexo: { type: String, required: true },            // Usa String en lugar de 'string'
   edad: { type: Number, required: true }             // Usa Number en lugar de 'string' para edades
 });
-
+  
 module.exports = mongoose.model('Persona', PersonaSchema);

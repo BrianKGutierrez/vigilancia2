@@ -16,7 +16,7 @@ personaCtrl.getPersonas = async (req, res) => {
 
 // Crear una nueva persona
 personaCtrl.createPersona = async (req, res) => {
-    var persona = new Persona(req.body);
+    const persona = new Persona(req.body);
     try {
         await persona.save();
         res.json({
@@ -24,12 +24,14 @@ personaCtrl.createPersona = async (req, res) => {
             'msg': 'Persona guardada.'
         });
     } catch (error) {
+        console.error(error);  // Imprime el error para depuración
         res.status(400).json({
             'status': '0',
             'msg': 'Error al guardar persona.'
         });
     }
 };
+
 
 // Obtener una persona por ID
 personaCtrl.getPersona = async (req, res) => {
