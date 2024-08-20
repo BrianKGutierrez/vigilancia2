@@ -1,23 +1,131 @@
-<div>
-    <h2>Gestión de Personas</h2>
-  
-    <form (ngSubmit)="selectedPersona._id ? updatePersona() : addPersona()">
-      <input [(ngModel)]="selectedPersona.nombre" name="nombre" placeholder="Nombre" required>
-      <input [(ngModel)]="selectedPersona.apellido" name="apellido" placeholder="Apellido" required>
-      <input [(ngModel)]="selectedPersona.dni" name="dni" placeholder="DNI" required>
-      <!-- Agrega los demás campos según el modelo Persona -->
-  
-      <button type="submit">{{ selectedPersona._id ? 'Actualizar' : 'Crear' }}</button>
-      <button type="button" (click)="resetForm()">Cancelar</button>
-    </form>
-  
-    <h3>Lista de Personas</h3>
-    <ul>
-      <li *ngFor="let persona of personas">
-        {{ persona.nombre }} {{ persona.apellido }}
-        <button (click)="editPersona(persona)">Editar</button>
-        <button (click)="deletePersona(persona._id)">Eliminar</button>
-      </li>
-    </ul>
-  </div>
-  
+<div class="container mt-4">
+  <h2 class="mb-4">Gestión de Personas</h2>
+
+  <form (ngSubmit)="selectedPersona._id ? updatePersona() : addPersona()" class="needs-validation" novalidate>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input [(ngModel)]="selectedPersona.nombre" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="apellido">Apellido</label>
+          <input [(ngModel)]="selectedPersona.apellido" name="apellido" id="apellido" class="form-control" placeholder="Apellido" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="dni">DNI</label>
+          <input [(ngModel)]="selectedPersona.dni" name="dni" id="dni" class="form-control" placeholder="DNI" required>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input [(ngModel)]="selectedPersona.telefono" name="telefono" id="telefono" class="form-control" placeholder="Teléfono">
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="provincia">Provincia</label>
+          <input [(ngModel)]="selectedPersona.provincia" name="provincia" id="provincia" class="form-control" placeholder="Provincia">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="localidad">Localidad</label>
+          <input [(ngModel)]="selectedPersona.localidad" name="localidad" id="localidad" class="form-control" placeholder="Localidad">
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="codigoPostal">Código Postal</label>
+          <input [(ngModel)]="selectedPersona.codigoPostal" name="codigoPostal" id="codigoPostal" class="form-control" placeholder="Código Postal">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="domicilio">Domicilio</label>
+          <input [(ngModel)]="selectedPersona.domicilio" name="domicilio" id="domicilio" class="form-control" placeholder="Domicilio">
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="fechaNacimiento">Fecha de Nacimiento</label>
+          <input [(ngModel)]="selectedPersona.fechaNacimiento" name="fechaNacimiento" id="fechaNacimiento" class="form-control" placeholder="Fecha de Nacimiento" type="date">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="sexo">Sexo</label>
+          <input [(ngModel)]="selectedPersona.sexo" name="sexo" id="sexo" class="form-control" placeholder="Sexo">
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="edad">Edad</label>
+          <input [(ngModel)]="selectedPersona.edad" name="edad" id="edad" class="form-control" placeholder="Edad" type="number">
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ selectedPersona._id ? 'Actualizar' : 'Crear' }}</button>
+    <button type="button" class="btn btn-secondary" (click)="resetForm()">Cancelar</button>
+  </form>
+
+  <h3 class="mt-4">Lista de Personas</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>DNI</th>
+        <th>Teléfono</th>
+        <th>Provincia</th>
+        <th>Localidad</th>
+        <th>Código Postal</th>
+        <th>Domicilio</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Sexo</th>
+        <th>Edad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of personas">
+        <td>{{ persona.nombre }}</td>
+        <td>{{ persona.apellido }}</td>
+        <td>{{ persona.dni }}</td>
+        <td>{{ persona.telefono }}</td>
+        <td>{{ persona.provincia }}</td>
+        <td>{{ persona.localidad }}</td>
+        <td>{{ persona.codigoPostal }}</td>
+        <td>{{ persona.domicilio }}</td>
+        <td>{{ persona.fechaNacimiento | date }}</td>
+        <td>{{ persona.sexo }}</td>
+        <td>{{ persona.edad }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="editPersona(persona)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="deletePersona(persona._id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

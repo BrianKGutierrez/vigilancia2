@@ -7,14 +7,14 @@ export class Persona {
     provincia: string;
     localidad: string;
     codigoPostal: string;
-    fechaRegistro: Date;
+    // fechaRegistro: Date;
     domicilio: string;
     fechaNacimiento: Date;
     sexo: string;
     edad: number;
 
     constructor() {
-        this._id = '';
+       
         this.nombre = '';
         this.apellido = '';
         this.dni = '';
@@ -22,7 +22,7 @@ export class Persona {
         this.provincia = '';
         this.localidad = '';
         this.codigoPostal = '';
-        this.fechaRegistro = new Date();
+        // this.fechaRegistro = new Date();
         this.domicilio = '';
         this.fechaNacimiento = new Date();
         this.sexo = '';

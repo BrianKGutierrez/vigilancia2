@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, FormsModule],  // Usa FormsModule aquí
   templateUrl: './persona.component.html',
-  styleUrls: ['./persona.component.css']
+  // styleUrls: ['./persona.component.css']
 })
 export class PersonaComponent implements OnInit {
   personas: Persona[] = [];
@@ -32,7 +32,7 @@ export class PersonaComponent implements OnInit {
       }
     );
   }
-
+  
   addPersona(): void {
     this.personaService.createPersona(this.selectedPersona).subscribe(
       res => {
