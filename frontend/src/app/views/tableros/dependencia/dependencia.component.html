@@ -1,0 +1,56 @@
+<!-- src/app/components/dependencia/dependencia.component.html -->
+<div class="container mt-4">
+    <h2 class="mb-4">Gestión de Dependencias</h2>
+  
+    <form #dependenciaForm="ngForm" (ngSubmit)="selectedDependencia._id ? updateDependencia() : addDependencia()" [ngClass]="{ 'was-validated': isFormIncomplete() }" class="needs-validation" novalidate>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="juridiccion">Jurisdicción</label>
+            <input [(ngModel)]="selectedDependencia.juridiccion" name="juridiccion" id="juridiccion" class="form-control" placeholder="Jurisdicción" required>
+            <div *ngIf="!selectedDependencia.juridiccion" class="invalid-feedback">
+              La jurisdicción es requerida.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="localidad">Localidad</label>
+            <input [(ngModel)]="selectedDependencia.localidad" name="localidad" id="localidad" class="form-control" placeholder="Localidad" required>
+            <div *ngIf="!selectedDependencia.localidad" class="invalid-feedback">
+              La localidad es requerida.
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="domicilio">Domicilio</label>
+            <input [(ngModel)]="selectedDependencia.domicilio" name="domicilio" id="domicilio" class="form-control" placeholder="Domicilio" required>
+            <div *ngIf="!selectedDependencia.domicilio" class="invalid-feedback">
+              El domicilio es requerido.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="jefeDni">Buscar Jefe por DNI</label>
+            <input [(ngModel)]="searchDni" name="jefeDni" id="jefeDni" class="form-control" placeholder="DNI del jefe">
+            <button (click)="searchPersonaByDni(searchDni)" class="btn btn-info mt-2">Buscar</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="unidad_regional">Unidad Regional</label>
+            <input [(ngModel)]="selectedDependencia.unidad_regional" name="unidad_regional" id="unidad_regional" class="form-control" placeholder="Unidad Regional" required>
+            <div *ngIf="!selectedDependencia.unidad_regional" class="invalid-feedback">
+              La unidad regional es requerida.
+            </div>
+          </div>
+        </div
+  

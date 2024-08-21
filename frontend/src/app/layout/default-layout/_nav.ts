@@ -49,6 +49,16 @@ export const navItems: INavData[] = [
         url: '/tableros/persona',
         icon: 'nav-icon-bullet'
       },
+      {
+        name: 'personal',
+        url: '/tableros/personal',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'dependencia',
+        url: '/tableros/dependencia',
+        icon: 'nav-icon-bullet'
+      },
      
     ]
   },

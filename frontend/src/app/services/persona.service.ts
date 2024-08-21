@@ -22,6 +22,15 @@ export class PersonaService {
     };
     return this._http.get(this.hostBase + '/', httpOptions);
   }
+// Obtener una persona por DNI
+getPersonaByDni(dni: string): Observable<any> {
+  let httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
+  return this._http.get(this.hostBase + '/dni/' + dni, httpOptions);
+}
 
   // Crear una nueva persona
   createPersona(persona: Persona): Observable<any> {

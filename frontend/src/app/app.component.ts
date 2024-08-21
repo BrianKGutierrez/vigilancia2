@@ -5,12 +5,15 @@ import { Title } from '@angular/platform-browser';
 import { IconSetService } from '@coreui/icons-angular';
 import { iconSubset } from './icons/icon-subset';
 import { PersonaComponent } from './views/tableros/persona/persona.component';
+import { PersonalComponent } from './views/tableros/personal/personal.component';
+import { DependenciaComponent } from './views/tableros/dependencia/dependencia.component';
 
 @Component({
   selector: 'app-root',
   template: '<router-outlet />',
   standalone: true,
-  imports: [RouterOutlet,PersonaComponent]
+  imports: [RouterOutlet,PersonaComponent,PersonalComponent,DependenciaComponent
+  ]
 })
 export class AppComponent implements OnInit {
   title = 'CoreUI Angular Admin Template';

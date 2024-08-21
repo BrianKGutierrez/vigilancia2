@@ -5,11 +5,12 @@ export class Persona {
     dni: string;
     telefono: string;
     provincia: string;
+    departamento: string;
     localidad: string;
     codigoPostal: string;
     // fechaRegistro: Date;
     domicilio: string;
-    fechaNacimiento: Date;
+    fechaNacimiento!: Date;
     sexo: string;
     edad: number;
 
@@ -20,11 +21,12 @@ export class Persona {
         this.dni = '';
         this.telefono = '';
         this.provincia = '';
+        this.departamento = '';
         this.localidad = '';
         this.codigoPostal = '';
         // this.fechaRegistro = new Date();
         this.domicilio = '';
-        this.fechaNacimiento = new Date();
+        // this.fechaNacimiento = new Date();
         this.sexo = '';
         this.edad = 0;
     }
