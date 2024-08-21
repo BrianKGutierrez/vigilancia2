@@ -62,6 +62,25 @@ personaCtrl.editPersona = async (req, res) => {
         });
     }
 };
+// Obtener una persona por DNI
+personaCtrl.getPersonaByDni = async (req, res) => {
+    try {
+        const persona = await Persona.findOne({ dni: req.params.dni });
+        if (persona) {
+            res.json(persona);
+        } else {
+            res.status(404).json({
+                'status': '0',
+                'msg': 'Persona no encontrada.'
+            });
+        }
+    } catch (error) {
+        res.status(400).json({
+            'status': '0',
+            'msg': 'Error al obtener la persona por DNI.'
+        });
+    }
+};
 
 // Eliminar una persona
 personaCtrl.deletePersona = async (req, res) => {

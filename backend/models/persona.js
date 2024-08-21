@@ -7,8 +7,11 @@ const PersonaSchema = new Schema({
   dni: { type: String, required: true },             // Usa String en lugar de 'string'
   telefono: { type: String, required: true },        // Usa String en lugar de 'string'
   provincia: { type: String, required: true },       // Usa String en lugar de 'string'
+  departamento: { type: String, required: true }, // Us
   localidad: { type: String, required: true },       // Usa String en lugar de 'string'
+  
   codigoPostal: { type: String, required: true },    // Usa String en lugar de 'string'
+
   // fechaRegistro: { type: Date, default: Date.now },  // Usa Date para fechas
   domicilio: { type: String, required: true },       // Usa String en lugar de 'string'
   fechaNacimiento: { type: Date, required: true },   // Usa Date para fechas

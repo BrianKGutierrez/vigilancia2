@@ -8,5 +8,8 @@ router.post('/', personaCtrl.createPersona);
 router.get('/:id', personaCtrl.getPersona);
 router.put('/:id', personaCtrl.editPersona);
 router.delete('/:id', personaCtrl.deletePersona);
+// Obtener una persona por DNI
+router.get('/dni/:dni', personaCtrl.getPersonaByDni);
+
 
 module.exports = router;
