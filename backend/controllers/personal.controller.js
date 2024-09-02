@@ -4,7 +4,9 @@ const personalCtrl = {};
 // Obtener todos los personales
 personalCtrl.getPersonales = async (req, res) => {
     try {
-        const personales = await Personal.find();
+        const personales = await Personal.find()
+            .populate('dependencia') // Suponiendo que el campo de referencia en Personal es 'dependencia'
+            .populate('persona');   // Suponiendo que el campo de referencia en Personal es 'persona'
         res.json(personales);
     } catch (error) {
         res.status(400).json({
@@ -34,7 +36,9 @@ personalCtrl.createPersonal = async (req, res) => {
 // Obtener un personal por ID
 personalCtrl.getPersonal = async (req, res) => {
     try {
-        const personal = await Personal.findById(req.params.id);
+        const personal = await Personal.findById(req.params.id)
+            .populate('dependencia') // Suponiendo que el campo de referencia en Personal es 'dependencia'
+            .populate('persona');   // Suponiendo que el campo de referencia en Personal es 'persona'
         if (!personal) {
             return res.status(404).json({
                 'status': '0',
@@ -91,6 +95,27 @@ personalCtrl.deletePersonal = async (req, res) => {
         res.status(400).json({
             'status': '0',
             'msg': 'Error al eliminar personal.'
+        });
+    }
+};
+
+// Buscar personal por legajo
+personalCtrl.getPersonalByLegajo = async (req, res) => {
+    try {
+        const personal = await Personal.findOne({ legajo: req.params.legajo })
+            .populate('dependencia') // Suponiendo que el campo de referencia en Personal es 'dependencia'
+            .populate('persona');   // Suponiendo que el campo de referencia en Personal es 'persona'
+        if (!personal) {
+            return res.status(404).json({
+                'status': '0',
+                'msg': 'Personal no encontrado.'
+            });
+        }
+        res.json(personal);
+    } catch (error) {
+        res.status(400).json({
+            'status': '0',
+            'msg': 'Error al obtener el personal por legajo.'
         });
     }
 };

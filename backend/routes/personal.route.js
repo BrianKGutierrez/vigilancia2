@@ -8,5 +8,8 @@ router.post('/', personalCtrl.createPersonal); // Crear un nuevo personal
 router.get('/:id', personalCtrl.getPersonal); // Obtener un personal por ID
 router.put('/:id', personalCtrl.editPersonal); // Editar un personal por ID
 router.delete('/:id', personalCtrl.deletePersonal); // Eliminar un personal por ID
+// Buscar personal por legajo
+router.get('/search/legajo/:legajo', personalCtrl.getPersonalByLegajo);
+
 
 module.exports = router;

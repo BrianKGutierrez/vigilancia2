@@ -2,9 +2,10 @@ const Dependencia = require('../models/dependencia');
 const dependenciaCtrl = {};
 
 // Obtener todas las dependencias
+// Obtener todas las dependencias
 dependenciaCtrl.getDependencias = async (req, res) => {
     try {
-        const dependencias = await Dependencia.find();
+        const dependencias = await Dependencia.find().populate('jefe');
         res.json(dependencias);
     } catch (error) {
         res.status(400).json({
@@ -13,6 +14,7 @@ dependenciaCtrl.getDependencias = async (req, res) => {
         });
     }
 };
+
 
 // Crear una nueva dependencia
 dependenciaCtrl.createDependencia = async (req, res) => {
@@ -32,9 +34,10 @@ dependenciaCtrl.createDependencia = async (req, res) => {
 };
 
 // Obtener una dependencia por ID
+// Obtener una dependencia por ID
 dependenciaCtrl.getDependencia = async (req, res) => {
     try {
-        const dependencia = await Dependencia.findById(req.params.id);
+        const dependencia = await Dependencia.findById(req.params.id).populate('jefe');
         res.json(dependencia);
     } catch (error) {
         res.status(400).json({
@@ -43,6 +46,7 @@ dependenciaCtrl.getDependencia = async (req, res) => {
         });
     }
 };
+
 
 // Editar una dependencia
 dependenciaCtrl.editDependencia = async (req, res) => {
