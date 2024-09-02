@@ -12,7 +12,7 @@ import { DependenciaComponent } from './views/tableros/dependencia/dependencia.c
   selector: 'app-root',
   template: '<router-outlet />',
   standalone: true,
-  imports: [RouterOutlet,PersonaComponent,PersonalComponent,DependenciaComponent
+  imports: [RouterOutlet,PersonaComponent
   ]
 })
 export class AppComponent implements OnInit {

@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaService } from '../../../services/persona.service';
 import { Persona } from '../../../models/persona';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-persona',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule, // Importa CommonModule
+    FormsModule   // Importa FormsModule
+  ],
   templateUrl: './persona.component.html',
 })
 export class PersonaComponent implements OnInit {
   personas: Persona[] = [];
   selectedPersona: Persona = new Persona();
+  searchDni: string = ''; // Definir la propiedad searchDni
 
   constructor(private personaService: PersonaService) {}
 
@@ -31,7 +35,7 @@ export class PersonaComponent implements OnInit {
       }
     );
   }
-  
+
   addPersona(): void {
     if (!this.selectedPersona.nombre || !this.selectedPersona.apellido || !this.selectedPersona.dni) {
       Swal.fire('Formulario incompleto', 'Por favor, completa todos los campos requeridos.', 'warning');
@@ -51,7 +55,6 @@ export class PersonaComponent implements OnInit {
       }
     );
   }
-
 
   editPersona(persona: Persona): void {
     this.selectedPersona = persona;
@@ -102,6 +105,7 @@ export class PersonaComponent implements OnInit {
            !this.selectedPersona.domicilio || !this.selectedPersona.fechaNacimiento || 
            !this.selectedPersona.sexo || !this.selectedPersona.edad;
   }
+
   searchPersonaByDni(dni: string): void {
     this.personaService.getPersonaByDni(dni).subscribe(
       data => {
@@ -117,5 +121,4 @@ export class PersonaComponent implements OnInit {
       }
     );
   }
-  
 }
